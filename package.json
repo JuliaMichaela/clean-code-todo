@@ -1,0 +1,31 @@
+{
+  "name": "clean-code-todo",
+  "version": "1.0.0",
+  "description": "Clean Code: TODO app",
+  "scripts": {
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "prepare": "husky"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JuliaMichaela/clean-code-todo.git"
+  },
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/JuliaMichaela/clean-code-todo/issues"
+  },
+  "homepage": "https://github.com/JuliaMichaela/clean-code-todo#readme",
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.13.0",
+    "globals": "^17.13.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.4.0",
+    "prettier": "^3.9.10"
+  },
+  "lint-staged": {
+    "*.js": "eslint",
+    "*.{js,html,css,json}": "prettier --check"
+  }
+}
