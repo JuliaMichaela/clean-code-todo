@@ -3,37 +3,52 @@ const addTaskButton = document.querySelector('.task-row-wrapper button');
 const incompleteTasksList = document.getElementById('incompleteTasks');
 const completedTasksList = document.getElementById('completed-tasks');
 
-const createTaskItem = function (taskText) {
-  const taskItem = document.createElement('li');
-
+const createCheckbox = function () {
   const checkbox = document.createElement('input');
+  checkbox.type = 'checkbox';
+  return checkbox;
+};
+
+const createLabel = function (taskText) {
   const label = document.createElement('label');
-  const editInput = document.createElement('input');
-  const editButton = document.createElement('button');
-
-  const deleteButton = document.createElement('button');
-  const deleteIcon = document.createElement('img');
-
   // innerText, not innerHTML: user input must not be parsed as HTML
   label.innerText = taskText;
   label.className = 'task';
+  return label;
+};
 
-  checkbox.type = 'checkbox';
+const createEditInput = function () {
+  const editInput = document.createElement('input');
   editInput.type = 'text';
   editInput.className = 'task';
+  return editInput;
+};
 
+const createEditButton = function () {
+  const editButton = document.createElement('button');
   editButton.innerText = 'Edit';
   editButton.className = 'edit';
+  return editButton;
+};
 
-  deleteButton.className = 'delete';
+const createDeleteButton = function () {
+  const deleteButton = document.createElement('button');
+  const deleteIcon = document.createElement('img');
   deleteIcon.src = './remove.svg';
+  deleteButton.className = 'delete';
   deleteButton.appendChild(deleteIcon);
+  return deleteButton;
+};
 
-  taskItem.appendChild(checkbox);
-  taskItem.appendChild(label);
-  taskItem.appendChild(editInput);
-  taskItem.appendChild(editButton);
-  taskItem.appendChild(deleteButton);
+const createTaskItem = function (taskText) {
+  const taskItem = document.createElement('li');
+  taskItem.append(
+    createCheckbox(),
+    createLabel(taskText),
+    createEditInput(),
+    createEditButton(),
+    createDeleteButton(),
+  );
   return taskItem;
 };
 
